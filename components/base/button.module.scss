@@ -1,0 +1,20 @@
+.container {
+    height: 60px;
+    width: 100%;
+    max-width: 356px;
+
+    background: #000000;
+    border: unset;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: #FFFFFF;
+
+    font-family: var(--roboto-font);
+}

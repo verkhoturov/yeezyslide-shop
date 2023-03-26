@@ -1,0 +1,93 @@
+.wrapper {
+    padding: 20px 0 90px;
+
+    @media (max-width: 1023px) {
+        padding: 10px 0 30px;
+    }
+}
+
+.sneakersWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    @media (max-width: 1023px) {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+}
+
+.sneakersList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media (max-width: 1023px) {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+}
+
+.card {
+    flex: 0 0 20%;
+    max-width: 20%;
+
+    margin-bottom: 20px;
+
+    > img {
+        width: 100%;
+        height: auto;
+    }
+
+    @media (max-width: 1023px) {
+        flex: 0 0 auto;
+        max-width: initial;
+    }
+}
+
+.about {
+    display: flex;
+
+    @media (max-width: 1023px) {
+        flex-direction: column;
+    }
+}
+
+.infoBlock {
+    > h3 {
+        font-family: var(--roboto-font);
+        letter-spacing: 1px;
+        font-size: 20px;
+
+        margin-bottom: 12px;
+    }
+}
+
+.delivery,
+.payment {
+    margin-right: 5%;
+
+    flex: 0 0 28%;
+    max-width: 28%;
+
+    @media (max-width: 1023px) {
+        margin-right: 0;
+        margin-bottom: 24px;
+    
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.note {
+    flex: 0 0 278px;
+    max-width: 278px;
+
+    margin-left: auto;
+}
+
+.delivery, .payment, .note {
+    border-top: 1px solid black;
+    padding-top: 17px;
+}

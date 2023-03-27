@@ -24,6 +24,7 @@ export const Welcome = () => {
 
   return (
     <Section>
+      <h1 className="visually-hidden">yeezyslide_russia</h1>
       <div className={styles.wrapper}>
         <div className={styles.sneakersWrapper}>
           {lists.map((list, i) => (

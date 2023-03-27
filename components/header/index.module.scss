@@ -64,6 +64,8 @@
 .text {
     font-weight: 700;
     font-size: 20px;
+    font-family: var(--poppins-font);
+    letter-spacing: 0;
 
     @media (max-width: 1023px) {
         font-size: 14px;

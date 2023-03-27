@@ -1,0 +1,94 @@
+.container {
+    width: 353px;
+    min-height: 396px;
+
+    padding: 24px 20px 32px;
+    margin: 13px;
+
+    background-color: #FFFFFF;
+
+    position: relative;
+}
+ 
+.title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.inStock {
+    font-size: 12px;
+    color: #0000004d;
+    font-family: var(--roboto-font);
+}
+
+.titleWrapper {
+    max-width: 60%;
+    position: relative;
+    z-index: 1;
+}
+
+.imgWrapper {
+    margin: -30px -20px 36px;
+    width: calc(100% + 40px);
+
+    > img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price { 
+    position: relative;
+    display: flex;
+
+    > .current, .full {
+        font-weight: 700;
+    }
+
+    > .current  {
+        font-size: 32px;
+        line-height: 14px;
+    }
+
+    > .full {
+        font-size: 16px;
+        line-height: 14px;
+        color: #B3B3B3;
+        text-decoration-line: line-through;
+
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+    }
+}
+
+.discount {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: #C2CF6D;
+
+    position: absolute;
+    right: 0;
+    top: 23px;
+
+    background: #FAFDEB;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 55px;
+
+    padding: 0 15px;
+}

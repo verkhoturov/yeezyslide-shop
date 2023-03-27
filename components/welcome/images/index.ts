@@ -14,6 +14,24 @@ import thirteenImg from "./13.png";
 import fourteenImg from "./14.png";
 import fifteenImg from "./15.png";
 
+export {
+  oneImg,
+  twoImg,
+  threeImg,
+  fourImg,
+  fiveImg,
+  sixImg,
+  sevenImg,
+  eightImg,
+  nineImg,
+  tenImg,
+  elevenImg,
+  twelveImg,
+  thirteenImg,
+  fourteenImg,
+  fifteenImg,
+};
+
 export const imagesList = [
   oneImg,
   twoImg,

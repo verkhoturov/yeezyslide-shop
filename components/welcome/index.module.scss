@@ -91,3 +91,10 @@
     border-top: 1px solid black;
     padding-top: 17px;
 }
+
+.btnWrapper {
+    > button {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+}

@@ -7,10 +7,18 @@
 
     margin: 0 auto;
 
+    @media (max-width: 1439px) {
+        padding: 20px 16px;
+    }
+
     @media (max-width: 1023px) {
         height: auto;
 
         padding: 40px 20px;
+    }
+
+    @media (max-width: 374px) {
+        padding: 24px 8px;
     }
 }
 

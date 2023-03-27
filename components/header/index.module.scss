@@ -9,8 +9,16 @@
     display: flex;
     align-items: center;
 
+    @media (max-width: 1439px) {
+        padding: 0 16px;
+    }
+
     @media (max-width: 1023px) {
         padding: 0 16px;
+    }
+
+    @media (max-width: 374px) {
+        padding: 0 8px;
     }
 }
 
@@ -64,17 +72,12 @@
 .text {
     font-weight: 700;
     font-size: 20px;
-    font-family: var(--poppins-font);
-    letter-spacing: 0;
+    color: #000000;
+    text-decoration: none;
 
     @media (max-width: 1023px) {
         font-size: 14px;
     }
-}
-
-.text_cyrillic {
-    font-family: var(--roboto-font);
-    letter-spacing: 1px;
 }
 
 .soc {

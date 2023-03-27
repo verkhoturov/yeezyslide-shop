@@ -6,7 +6,7 @@ export const Header = () => {
     <header className={styles.container}>
       <div className={styles.content}>
         <div className={styles.logoCol}>
-          <span className={styles.text}>yeezyslide_russia</span>
+          <Link href={"/"} className={styles.text}>yeezyslide_russia</Link>
         </div>
 
         <div className={styles.socCol}>
@@ -18,19 +18,11 @@ export const Header = () => {
         </div>
 
         <div className={`${styles.tableCol} hide-mobile`}>
-          <span
-            className={`${styles.text} ${styles.text_cyrillic}`}
-          >
-            Размерная таблица
-          </span>
+          <span className={styles.text}>Размерная таблица</span>
         </div>
 
         <div className={`${styles.buyCol} hide-mobile`}>
-          <span
-            className={`${styles.text} ${styles.text_cyrillic}`}
-          >
-            Купить <span className={styles.text}>Yeezy</span>
-          </span>
+          <span className={styles.text}>Купить Yeezy</span>
         </div>
       </div>
     </header>

@@ -1,5 +1,5 @@
 body {
-    font-family: var(--poppins-font);
+    font-family: var(--roboto-font);
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -28,7 +28,7 @@ body {
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
-  }
+}
 
 @media (max-width: 1023px) {
     .hide-mobile {

@@ -12,11 +12,22 @@
     justify-content: center;
 
     font-weight: 700;
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 18px;
     color: #FFFFFF;
 
+    cursor: pointer;
+
     font-family: var(--roboto-font);
+
+    &.secondary {
+        border: 1px solid #000000;
+        background: unset;
+        color: #000000;
+    }
+
+    @media (max-width: 1023px) {
+        font-size: 14px;
+    }
 }
 
 .linkWrapper {
@@ -37,5 +48,22 @@
 
         background: #000000;
         border-radius: 8px;
+    }
+
+    &.disabled {
+        > a {
+            pointer-events: none;
+            cursor: default;
+            background: #00000033;
+        }
+    }
+
+    @media (max-width: 1023px) {
+        > a {
+            height: 18px;
+            width: 60px;
+            font-size: 8px;
+            border-radius: 2px;
+        }
     }
 }

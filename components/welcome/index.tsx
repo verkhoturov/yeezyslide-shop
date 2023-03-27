@@ -60,7 +60,9 @@ export const Welcome = () => {
         </div>
 
         <div className="show-mobile">
-          <Button>Купить Yeezy</Button>
+          <div className={styles.btnWrapper}>
+            <Button>Купить Yeezy</Button>
+          </div>
         </div>
       </div>
     </Section>

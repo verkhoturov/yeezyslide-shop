@@ -1,22 +1,11 @@
-import { twoImg, sevenImg, twelveImg } from "../components/welcome/images/index";
+import {
+  twoImg,
+  sevenImg,
+  twelveImg,
+} from "../components/welcome/images/mobile";
+import { Model, CatalogItem } from "../lib/types";
 
-enum Model {
-  FOAM_RUNNER = "FOAM_RUNNER",
-  ADILETTE_22 = "ADILETTE_22",
-  SLIDE = "SLIDE",
-}
-
-interface Item {
-  id: number;
-  title: string;
-  img: string;
-  price: number;
-  discount: number | null;
-  inStock: boolean;
-  model: Model;
-}
-
-export const mockItems: Item[] = [
+export const mockItems: CatalogItem[] = [
   {
     id: 1,
     title: "ADIDAS YEEZY adilette-22",
@@ -25,6 +14,7 @@ export const mockItems: Item[] = [
     discount: 35,
     inStock: true,
     model: Model.ADILETTE_22,
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
   },
   {
     id: 2,
@@ -34,6 +24,7 @@ export const mockItems: Item[] = [
     discount: 25,
     inStock: true,
     model: Model.FOAM_RUNNER,
+    sizes: [36, 37, 38, 39, 43, 44, 45],
   },
   {
     id: 3,
@@ -43,6 +34,7 @@ export const mockItems: Item[] = [
     discount: null,
     inStock: false,
     model: Model.SLIDE,
+    sizes: [36, 37, 38],
   },
   {
     id: 4,
@@ -52,6 +44,7 @@ export const mockItems: Item[] = [
     discount: 35,
     inStock: true,
     model: Model.ADILETTE_22,
+    sizes: [43, 44, 45],
   },
   {
     id: 5,
@@ -61,6 +54,7 @@ export const mockItems: Item[] = [
     discount: 25,
     inStock: true,
     model: Model.FOAM_RUNNER,
+    sizes: [36, 37, 43, 44, 45],
   },
   {
     id: 6,
@@ -70,6 +64,7 @@ export const mockItems: Item[] = [
     discount: null,
     inStock: true,
     model: Model.SLIDE,
+    sizes: [36, 37, 38, 39],
   },
   {
     id: 7,
@@ -79,6 +74,7 @@ export const mockItems: Item[] = [
     discount: 10,
     inStock: true,
     model: Model.SLIDE,
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
   },
   {
     id: 8,
@@ -88,5 +84,36 @@ export const mockItems: Item[] = [
     discount: null,
     inStock: false,
     model: Model.FOAM_RUNNER,
+    sizes: [43, 44, 45],
+  },
+  {
+    id: 9,
+    title: "ADIDAS YEEZY adilette-88",
+    img: twoImg.src,
+    price: 16800,
+    discount: null,
+    inStock: true,
+    model: Model.ADILETTE_22,
+    sizes: [36, 37, 38,  42, 43, 44, 45],
+  },
+  {
+    id: 10,
+    title: "Slide 111",
+    img: sevenImg.src,
+    price: 17000,
+    discount: null,
+    inStock: false,
+    model: Model.SLIDE,
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+  },
+  {
+    id: 11,
+    title: "Slide 999",
+    img: twelveImg.src,
+    price: 12000,
+    discount: null,
+    inStock: true,
+    model: Model.SLIDE,
+    sizes: [36, 37, 38, 39],
   },
 ];

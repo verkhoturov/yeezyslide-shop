@@ -1,40 +1,15 @@
 import { Section } from "../layout";
 import { Button } from "../base";
-import Image, { StaticImageData } from "next/image";
+import { SneakersPepresent } from "./sneakers";
 
-import { imagesList } from "./images";
 import styles from "./index.module.scss";
 
-const Sneakers = ({ image }: { image: StaticImageData }) => {
-  const { src, width, height } = image;
-
-  return (
-    <div className={styles.card}>
-      <Image src={src} width={width} height={height} alt="" />
-    </div>
-  );
-};
-
 export const Welcome = () => {
-  const lists = [
-    imagesList.filter((_, i) => i < 5),
-    imagesList.filter((_, i) => i > 4 && i < 10),
-    imagesList.filter((_, i) => i > 9),
-  ];
-
   return (
     <Section>
       <h1 className="visually-hidden">yeezyslide_russia</h1>
       <div className={styles.wrapper}>
-        <div className={styles.sneakersWrapper}>
-          {lists.map((list, i) => (
-            <div key={i} className={styles.sneakersList}>
-              {list.map((image, j) => (
-                <Sneakers key={j} image={image} />
-              ))}
-            </div>
-          ))}
-        </div>
+        <SneakersPepresent />
 
         <div className={styles.about}>
           <div className={`${styles.infoBlock} ${styles.delivery}`}>

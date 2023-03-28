@@ -1,4 +1,4 @@
-enum Model {
+export enum Model {
     FOAM_RUNNER = "FOAM_RUNNER",
     ADILETTE_22 = "ADILETTE_22",
     SLIDE = "SLIDE",
@@ -12,5 +12,6 @@ export interface CatalogItem {
     discount: number | null;
     inStock: boolean;
     model: Model;
+    sizes: number[];
 }
   

@@ -1,0 +1,90 @@
+ 
+.sneakersWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    @media (max-width: 1023px) {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+}
+
+.sneakersList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media (max-width: 1023px) {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+}
+
+.card {
+    flex: 0 0 20%;
+    max-width: 20%;
+
+    margin-bottom: 20px;
+
+    position: relative;
+
+    > img {
+        width: 100%;
+        height: auto;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        transition: 0.5s;
+        opacity: 1;
+    }
+
+    :first-child {
+        position: relative;
+        transition-delay: 0s;
+    }
+
+    :nth-child(2) {
+        transition-delay: 0.5s;
+    }
+
+    :nth-child(3) {
+        transition-delay: 1s;
+    }
+
+    :nth-child(4) {
+        transition-delay: 1.5s;
+    }
+
+    :nth-child(5) {
+        transition-delay: 2s;
+    }
+
+    :nth-child(6) {
+        transition-delay: 2.5s;
+    }
+
+    :nth-child(7) {
+        transition-delay: 3s;
+    }
+
+    :last-child {
+        opacity: 1 !important;
+    }
+
+    @media (max-width: 1023px) {
+        flex: 0 0 auto;
+        max-width: initial;
+    }
+}
+
+.cardHover {
+    > img {
+        opacity: 0;
+    }
+}

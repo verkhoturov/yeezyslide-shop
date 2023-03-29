@@ -5,7 +5,7 @@ import { Roboto } from "next/font/google";
 
 const roboto = Roboto({
   variable: "--roboto-font",
-  weight: ["400",   "700"],
+  weight: ["400", "700", "900"],
   subsets: ["latin", "cyrillic"],
   preload: true,
 });

@@ -6,6 +6,10 @@ export enum Model {
   
 export interface CatalogItem {
     id: number;
+    article: string;
+    releaseDate: string;
+    composition: string;
+    color: string;
     title: string;
     img: string;
     price: number;

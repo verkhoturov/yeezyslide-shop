@@ -1,0 +1,235 @@
+.container {
+    padding: 10px 0;
+
+    min-height: 825px;
+}
+
+.title {
+    font-size: 40px;
+    line-height: 48px;
+    text-transform: uppercase;
+
+    max-width: 75%;
+
+    @media (max-width: 1023px) {
+        font-size: 24px;
+        line-height: 26px;
+
+        max-width: 50%;
+    }
+}
+
+.subtitle {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+
+    margin-bottom: 24px;
+
+    @media (max-width: 1023px) {
+        font-size: 14px;
+        line-height: 14px;
+
+        margin-bottom: 14px;
+    }
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 1023px) {
+        flex-direction: column;
+    }
+}
+
+.sliderCol {
+    flex: 0 0 60%; 
+    max-width: 60%;
+
+    @media (max-width: 1023px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.infoCol {
+    flex: 0 0 38%; 
+    max-width: 38%; 
+
+    padding-top: 22px;
+
+    @media (max-width: 1023px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.desc {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28px;
+    text-transform: uppercase;
+
+    margin-bottom: 64px;
+
+    dt {
+        padding-right: 4px;
+    }
+
+    @media (max-width: 1023px) {
+        margin-bottom: 20px;
+        padding: 16px 0;
+        border-bottom: 1px solid black;
+        border-top: 1px solid black;
+    }
+}
+
+.descRow {
+    display: flex;
+}
+
+.sizes {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    max-width: 518px;
+    width: 100%;
+    margin: -14px -20px 35px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 14px;
+
+    > div {
+        margin: 14px 20px;
+        &.disabled {
+            opacity: 0.3;
+        }
+
+        @media (max-width: 1023px) {
+            margin: 9px 10px;
+        }
+    }
+
+    @media (max-width: 1023px) {
+        margin: -9px -10px 35px;
+    }
+}
+
+.price {
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 48px;
+
+    @media (max-width: 1023px) {
+        font-size: 24px;
+        line-height: 26px;
+    }
+}
+
+
+.titleWrapper {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 11px;
+
+    @media (max-width: 1023px) {
+        margin-bottom: 16px;
+    }
+}
+
+
+.priceWrapper {
+    display: none;
+
+    @media (max-width: 1023px) {
+        display: block;
+    }
+}
+
+.about {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    padding-top: 25px;
+
+    @media (max-width: 1023px) {
+        flex-direction: column;
+    }
+}
+
+.aboutRow {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    flex: 0 0 833px;
+    max-width:  833px;
+
+    @media (max-width: 1439px) {
+        margin-right: 0;
+        margin-bottom: 24px;
+    
+        flex: 0 0 60%;
+        max-width: 60%;
+    }
+
+    @media (max-width: 1023px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.infoBlock {
+    > h3 {
+        font-size: 20px;
+
+        margin-bottom: 12px;
+    }
+}
+
+.delivery,
+.payment { 
+    flex: 0 0 384px;
+    max-width:  384px;
+
+    @media (max-width: 1439px) {
+
+        flex: 0 0 45%;
+        max-width: 45%;
+    }
+
+    @media (max-width: 1023px) {
+        margin-right: 0;
+        margin-bottom: 24px;
+    
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.sizesTable {
+    flex: 0 0 38%;
+    max-width: 38%;
+
+    @media (max-width: 1023px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.delivery, .payment, .sizesTable {
+    border-top: 1px solid black;
+    padding-top: 17px;
+}
+
+.imgWrapper {
+    > img {
+        width: 100%;
+        height: auto;
+    }
+}

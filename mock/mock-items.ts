@@ -94,7 +94,7 @@ export const mockItems: CatalogItem[] = [
     discount: null,
     inStock: true,
     model: Model.ADILETTE_22,
-    sizes: [36, 37, 38,  42, 43, 44, 45],
+    sizes: [36, 37, 38, 42, 43, 44, 45],
   },
   {
     id: 10,

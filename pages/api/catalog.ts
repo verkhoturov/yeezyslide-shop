@@ -10,5 +10,6 @@ type Data = {
 };
 
 export default function handler(_: NextApiRequest, res: NextApiResponse<Data>) {
+  res.setHeader('Content-Type', 'application/json');
   res.status(200).json({ status: "success", catalogList: mockItems });
 }

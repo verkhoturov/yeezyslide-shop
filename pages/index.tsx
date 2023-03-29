@@ -1,3 +1,5 @@
+
+
 import { GetStaticProps } from "next";
 import { getCatalogList } from "../lib/api";
 import { CatalogItem } from "../lib/types";
@@ -13,6 +15,8 @@ interface HomePageProps {
 }
 
 const Home = ({ catalogList }: HomePageProps) => {
+ 
+
   return (
     <Page>
       <div style={{ display: "none" }}>
@@ -21,7 +25,8 @@ const Home = ({ catalogList }: HomePageProps) => {
       </div>
 
       <Welcome />
-      <Catalog items={catalogList} />
+      <Catalog items={// catalogList
+      mockItems} />
     </Page>
   );
 };
@@ -29,10 +34,11 @@ const Home = ({ catalogList }: HomePageProps) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const catalogList = await getCatalogList();
+  // const catalogList = await getCatalogList();
 
   return {
-    props: { catalogList },
+    // props: { catalogList },
+    props: {},
     revalidate: 30,
     // fallback: true,
   };

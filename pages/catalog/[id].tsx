@@ -8,20 +8,13 @@ export default function ProductPage({ product }: { product?: CatalogItem }) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  if (params) {
-    const id = Array.isArray(params.id) ? params.id[0] : params.id;
-    const catalogList = await getCatalogList();
-    const product = id
-      ? catalogList.find((item) => item.id === +id)
-      : undefined;
-    return {
-      props: { product },
-      revalidate: 30,
-    };
-  }
+  const id = Array.isArray(params?.id) ? params?.id[0] : params?.id;
+
+  const catalogList = id ? await getCatalogList() : [];
+  const product = catalogList.find((item) => String(item.id) === id);
 
   return {
-    props: { product: undefined },
+    props: { product },
     revalidate: 30,
   };
 };

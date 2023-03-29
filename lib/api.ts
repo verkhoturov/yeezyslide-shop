@@ -27,16 +27,21 @@ console.log("URL:", process.env.NEXT_PUBLIC_VERCEL_URL ?? "none");
 export const getCatalogList = async (): Promise<CatalogItem[]> => {
   const res = await fetch(`${API_URL}/api/catalog`);
   // console.log("RES:", res, typeof res);
-  const textdata = await res.text();
-  const data: Data = JSON.parse(textdata);
+  try {
+    const textdata = await res.text();
+    const data: Data = JSON.parse(textdata);
 
-  console.log(data);
+    console.log(data);
 
-  if (!data || !data.catalogList.length) {
-    throw new Error("Failed to fetch catalog list");
+    if (!data || !data.catalogList.length) {
+      throw new Error("Failed to fetch catalog list");
+    }
+
+    const catalogList: CatalogItem[] = data.catalogList;
+
+    return catalogList;
+  } catch (e) {
+    console.error("ERR:", e);
+    return [];
   }
-
-  const catalogList: CatalogItem[] = data.catalogList;
-
-  return catalogList;
 };

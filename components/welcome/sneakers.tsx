@@ -78,6 +78,7 @@ const Sneakers = ({ images }: { images: StaticImageData[] }) => {
           height={img.height}
           alt=""
           style={{ zIndex: 100 - i }}
+          priority={i == 0}
         />
       ))}
     </div>
@@ -106,11 +107,10 @@ export const SneakersPepresent = () => {
                 <SneakersMobile key={j} image={img} />
               ))}
             </div>
-          ))}{" "}
+          ))}
         </>
       ) : (
         <>
-          {" "}
           {list.map((row, i) => (
             <div key={i} className={styles.sneakersList}>
               {row.map((images, j) => (

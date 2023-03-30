@@ -26,8 +26,6 @@ export const SneakersInfo = ({ item }: SneakersInfoProps) => {
     price,
   } = item;
 
-  console.log(item);
-
   return (
     <Section isBgColor>
       <div className={styles.container}>

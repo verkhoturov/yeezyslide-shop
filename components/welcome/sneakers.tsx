@@ -44,7 +44,6 @@ const list = [
     runnerOneImageList,
     runnerBottomImageList,
   ],
-  /*
   [
     adiletteSideImageList,
     adiletteFaceImageList,
@@ -52,7 +51,6 @@ const list = [
     adiletteOneImageList,
     adiletteBottomImageList,
   ],
-  */
 ];
 
 const mobileLists = [

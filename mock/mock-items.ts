@@ -1,6 +1,12 @@
 import { adiletteFaceImageList } from "../components/welcome/images/adilette";
 import { slideFaceImageList } from "../components/welcome/images/slide";
 import { runnerFaceImageList } from "../components/welcome/images/runner";
+
+import runnerImg from "./images/runner.png";
+import slideImg from "./images/slide.png";
+import adiletteImg from "./images/adilette.png";
+
+
 import { Model, CatalogItem } from "../lib/types";
 
 export const mockItems: CatalogItem[] = [
@@ -11,7 +17,8 @@ export const mockItems: CatalogItem[] = [
     composition: "пена EVA",
     color: "",
     title: "ADIDAS YEEZY adilette-22",
-    img: adiletteFaceImageList[0].src,
+    catalogImg: adiletteFaceImageList[0].src,
+    pageImg: adiletteImg.src,
     price: 18800,
     discount: 35,
     inStock: true,
@@ -25,7 +32,8 @@ export const mockItems: CatalogItem[] = [
     composition: "пена EVA",
     color: "",
     title: "foam runner desert sand 333",
-    img: runnerFaceImageList[0].src,
+    catalogImg: runnerFaceImageList[0].src,
+    pageImg: runnerImg.src,
     price: 16000,
     discount: 25,
     inStock: true,
@@ -39,7 +47,8 @@ export const mockItems: CatalogItem[] = [
     composition: "пена EVA",
     color: "",
     title: "Slide 123",
-    img: slideFaceImageList[0].src,
+    catalogImg: slideFaceImageList[0].src,
+    pageImg: slideImg.src,
     price: 22000,
     discount: null,
     inStock: false,
@@ -53,7 +62,8 @@ export const mockItems: CatalogItem[] = [
     composition: "пена EVA",
     color: "",
     title: "ADIDAS YEEZY adilette-22",
-    img: adiletteFaceImageList[0].src,
+    catalogImg: adiletteFaceImageList[0].src,
+    pageImg: adiletteImg.src,
     price: 18800,
     discount: 35,
     inStock: true,
@@ -67,7 +77,8 @@ export const mockItems: CatalogItem[] = [
     composition: "пена EVA",
     color: "",
     title: "foam runner desert sand 444",
-    img: runnerFaceImageList[0].src,
+    catalogImg: runnerFaceImageList[0].src,
+    pageImg: runnerImg.src,
     price: 16000,
     discount: 25,
     inStock: true,
@@ -81,7 +92,8 @@ export const mockItems: CatalogItem[] = [
     composition: "пена EVA",
     color: "",
     title: "Slide 321",
-    img: slideFaceImageList[0].src,
+    catalogImg: slideFaceImageList[0].src,
+    pageImg: slideImg.src,
     price: 22000,
     discount: null,
     inStock: true,
@@ -95,7 +107,8 @@ export const mockItems: CatalogItem[] = [
     composition: "пена EVA",
     color: "",
     title: "Slide 777",
-    img: slideFaceImageList[0].src,
+    catalogImg: slideFaceImageList[0].src,
+    pageImg: slideImg.src,
     price: 7000,
     discount: 10,
     inStock: true,
@@ -109,7 +122,8 @@ export const mockItems: CatalogItem[] = [
     composition: "пена EVA",
     color: "",
     title: "foam runner desert sand 13",
-    img: runnerFaceImageList[0].src,
+    catalogImg: runnerFaceImageList[0].src,
+    pageImg: runnerImg.src,
     price: 13000,
     discount: null,
     inStock: false,
@@ -123,7 +137,8 @@ export const mockItems: CatalogItem[] = [
     composition: "пена EVA",
     color: "",
     title: "ADIDAS YEEZY adilette-88",
-    img: adiletteFaceImageList[0].src,
+    catalogImg: adiletteFaceImageList[0].src,
+    pageImg: adiletteImg.src,
     price: 16800,
     discount: null,
     inStock: true,
@@ -137,7 +152,8 @@ export const mockItems: CatalogItem[] = [
     composition: "пена EVA",
     color: "",
     title: "Slide 111",
-    img: slideFaceImageList[0].src,
+    catalogImg: slideFaceImageList[0].src,
+    pageImg: slideImg.src,
     price: 17000,
     discount: null,
     inStock: false,
@@ -151,7 +167,8 @@ export const mockItems: CatalogItem[] = [
     composition: "пена EVA",
     color: "",
     title: "Slide 999",
-    img: slideFaceImageList[0].src,
+    catalogImg: slideFaceImageList[0].src,
+    pageImg: slideImg.src,
     price: 12000,
     discount: null,
     inStock: true,

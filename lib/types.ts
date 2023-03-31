@@ -11,7 +11,8 @@ export interface CatalogItem {
     composition: string;
     color: string;
     title: string;
-    img: string;
+    catalogImg: string;
+    pageImg: string;
     price: number;
     discount: number | null;
     inStock: boolean;

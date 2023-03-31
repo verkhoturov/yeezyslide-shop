@@ -15,7 +15,10 @@ const API_URL = IS_LOCAL_DEV
   : `https://${VERCEL_URL}`;
 
 export const getCatalogList = async (): Promise<CatalogItem[]> => {
+  console.log("API LINK", `${API_URL}/api/catalog`)
   const res = await fetch(`${API_URL}/api/catalog`);
+  // const restext = await  res.text()
+  // console.log("res.text()", restext)
 
   try {
     const data: Data = await res.json();

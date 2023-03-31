@@ -16,7 +16,7 @@ export const SneakersInfo = ({ item }: SneakersInfoProps) => {
 
   const {
     title,
-    pageImg,
+    img,
     article,
     color,
     releaseDate,
@@ -32,7 +32,7 @@ export const SneakersInfo = ({ item }: SneakersInfoProps) => {
         <div className={styles.row}>
           <div className={styles.sliderCol}>
             <div className={styles.imgWrapper}>
-              <Image src={pageImg} width={100} height={100} alt={title} />
+              <Image src={img} width={100} height={100} alt={title} />
             </div>
           </div>
           <div className={styles.infoCol}>

@@ -5,7 +5,7 @@ import styles from "./index.module.scss";
 interface Item {
   id: number;
   title: string;
-  catalogImg: string;
+  img: string;
   price: number;
   discount: number | null;
   inStock: boolean;
@@ -16,7 +16,7 @@ interface CardProps {
 }
 
 export const Card = ({ item }: CardProps) => {
-  const { id, title, discount, price, catalogImg, inStock } = item;
+  const { id, title, discount, price, img, inStock } = item;
   const priceFmt = price.toLocaleString("ru-RU");
 
   const currentPrice = (
@@ -35,7 +35,7 @@ export const Card = ({ item }: CardProps) => {
       {discount && <div className={styles.discount}>-{discount}%</div>}
 
       <div className={styles.imgWrapper}>
-        <Image src={catalogImg} height={320} width={200} alt={title} />
+        <Image src={img} height={320} width={200} alt={title} />
       </div>
 
       <div className={styles.bottom}>

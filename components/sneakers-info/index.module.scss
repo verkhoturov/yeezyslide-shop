@@ -2,6 +2,12 @@
     padding: 10px 0;
 
     min-height: 825px;
+
+    position: relative;
+
+    @media (max-width: 1023px) {
+        padding: 0;
+    }
 }
 
 .title {
@@ -15,7 +21,7 @@
         font-size: 24px;
         line-height: 26px;
 
-        max-width: 50%;
+        max-width: 55%;
     }
 }
 
@@ -123,9 +129,36 @@
     font-size: 40px;
     line-height: 48px;
 
+    position: relative;
+
     @media (max-width: 1023px) {
         font-size: 24px;
         line-height: 26px;
+        font-weight: 700;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        height: 52px;
+    }
+}
+
+.fullPrice {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 22px;
+    color: #B3B3B3;
+    text-decoration-line: line-through;
+
+    position: absolute;
+    top: -35%;
+    left: 0;
+
+    @media (max-width: 1023px) {
+        position: initial;
+        font-size: 16px;
+        line-height: 14px;
     }
 }
 
@@ -231,5 +264,36 @@
     > img {
         width: 100%;
         height: auto;
+    }
+}
+
+
+.discount {
+    position: absolute;
+    right: 0;
+    top: 30px;
+
+    height: 54px;
+    min-width: 87px;
+
+    background: #FFFFFF;
+
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+
+    color: #C2CF6D;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 16px;
+
+    @media (max-width: 1023px) {
+        right: unset;
+        left: 0;
+        top: 0;
     }
 }

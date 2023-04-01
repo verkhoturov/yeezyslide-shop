@@ -1,29 +1,39 @@
-import { CatalogItem } from "./types";
+import { CatalogItem, Model } from "./types";
 
-interface Data {
-  status: string;
-  catalogList: CatalogItem[];
-}
+const formatterWPDataToCatalogItem = (wpData: any[]): CatalogItem[] => {
+  return wpData.map((item) => {
+    return {
+      id: item.id,
+      slug: item.slug,
+      article: item.acf.article,
+      releaseDate: item.acf.releaseDate,
+      composition: item.acf.composition,
+      // @ts-ignore
+      colors: item.acf.colors.map((c) => c.colorName),
+      title: item.title.rendered,
+      // @ts-ignore
+      prewImg: item.acf.colors.map((c) => c.images[0].sizes.medium_large)[0],
+      // @ts-ignore
+      pageImg: item.acf.colors.map((c) => c.images[0].sizes.large)[0],
+      price: Number(item.acf.price),
+      discount: item.acf.discount ? Number(item.acf.discount) : null,
+      inStock: item.acf.inStock,
+      model: item.acf.model as Model,
+      sizes: item.acf.sizes,
+    };
+  });
+};
 
-const VERCEL_URL =
-  process.env.NEXT_PUBLIC_VERCEL_URL ??
-  "yeezyslide-shop-ptmv9s8ud-verkhoturov.vercel.app";
-
-const IS_LOCAL_DEV = process.env.NEXT_PUBLIC_VERCEL_ENV === "development";
-const API_URL = IS_LOCAL_DEV
-  ? `http://localhost:3000`
-  : `https://${VERCEL_URL}`;
+const API_URL = `${process.env.WORDPRESS_URL}/wp-json/wp/v2`;
 
 export const getCatalogList = async (): Promise<CatalogItem[]> => {
-  console.log("API LINK", `${API_URL}/api/catalog`);
-  const res = await fetch(`${API_URL}/api/catalog`);
-  const restext = await res.text();
-  console.log("res.text()", restext);
-
   try {
-    const data: Data = await res.json();
+    const res = await fetch(`${API_URL}/posts`);
+    const data = await res.json();
 
-    const catalogList: CatalogItem[] = data.catalogList;
+    // console.log(data[0].acf.colors[0].images);
+
+    const catalogList = formatterWPDataToCatalogItem(data);
 
     return catalogList;
   } catch (e) {

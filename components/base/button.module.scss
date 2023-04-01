@@ -25,6 +25,12 @@
         color: #000000;
     }
 
+    &.disabled {
+        pointer-events: none;
+        cursor: default;
+        background: #00000033;
+    }
+
     @media (max-width: 1023px) {
         font-size: 14px;
     }
@@ -32,8 +38,9 @@
 
 .linkWrapper {
     > a {
-        height: 36px;
-        width: 125px;
+        height: 60px;
+        width: 100%;
+        max-width: 356px;
 
         font-weight: 700;
         font-size: 18px;
@@ -66,4 +73,9 @@
             border-radius: 2px;
         }
     }
+}
+
+.small {
+    height: 36px;
+    width: 125px;
 }

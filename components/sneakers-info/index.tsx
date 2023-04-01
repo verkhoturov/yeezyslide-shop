@@ -4,7 +4,20 @@ import { Section } from "../layout";
 import { CatalogItem } from "../../lib/types";
 import styles from "./index.module.scss";
 
-const defaultSizes = [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47];
+const defaultSizes = [
+  "36",
+  "37",
+  "38",
+  "39",
+  "40",
+  "41",
+  "42",
+  "43",
+  "44",
+  "45",
+  "46",
+  "47",
+];
 
 interface SneakersInfoProps {
   item?: CatalogItem;
@@ -16,23 +29,38 @@ export const SneakersInfo = ({ item }: SneakersInfoProps) => {
 
   const {
     title,
-    img,
+    pageImg,
     article,
-    color,
+    colors,
     releaseDate,
     composition,
     inStock,
     sizes,
     price,
+    discount,
   } = item;
+
+  const priceFmt = price.toLocaleString("ru-RU");
+
+  const currentPrice = (
+    discount ? (price * (100 - discount)) / 100 : price
+  ).toLocaleString("ru-RU");
 
   return (
     <Section isBgColor>
       <div className={styles.container}>
+        {discount && <div className={styles.discount}>-{discount}%</div>}
+
         <div className={styles.row}>
           <div className={styles.sliderCol}>
             <div className={styles.imgWrapper}>
-              <Image src={img} width={100} height={100} alt={title} />
+              <Image
+                src={pageImg}
+                width={833}
+                height={500}
+                alt={title}
+                unoptimized={false}
+              />
             </div>
           </div>
           <div className={styles.infoCol}>
@@ -41,7 +69,10 @@ export const SneakersInfo = ({ item }: SneakersInfoProps) => {
 
               <div className={styles.priceWrapper}>
                 <p className={styles.price}>
-                  {price.toLocaleString("ru-RU")} ₽
+                  {discount && (
+                    <span className={styles.fullPrice}>{priceFmt} ₽</span>
+                  )}
+                  <span>{currentPrice} ₽</span>
                 </p>
               </div>
             </div>
@@ -54,7 +85,7 @@ export const SneakersInfo = ({ item }: SneakersInfoProps) => {
 
               <div className={styles.descRow}>
                 <dt>Цвет:</dt>
-                <dd>{color}</dd>
+                <dd>{colors.join("/")}</dd>
               </div>
 
               <div className={styles.descRow}>
@@ -87,7 +118,12 @@ export const SneakersInfo = ({ item }: SneakersInfoProps) => {
             </div>
 
             <div className={`${styles.row} hide-mobile`}>
-              <p className={styles.price}>{price.toLocaleString("ru-RU")} ₽</p>
+              <p className={styles.price}>
+                {discount && (
+                  <span className={styles.fullPrice}>{priceFmt} ₽</span>
+                )}
+                <span>{currentPrice} ₽</span>
+              </p>
             </div>
           </div>
         </div>

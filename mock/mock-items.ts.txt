@@ -6,7 +6,6 @@ import runnerImg from "./images/runner.png";
 import slideImg from "./images/slide.png";
 import adiletteImg from "./images/adilette.png";
 
-
 import { Model, CatalogItem } from "../lib/types";
 
 export const mockItems: CatalogItem[] = [

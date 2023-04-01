@@ -30,6 +30,10 @@
         line-height: 14px;
         text-transform: uppercase;
     }
+
+    &:hover .checkbox::after {
+        background-color: #c4c4c4;
+    }
 }
 
 .checkbox {

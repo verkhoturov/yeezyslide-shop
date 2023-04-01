@@ -27,10 +27,10 @@ export default function ProductPage({
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const id = Array.isArray(params?.id) ? params?.id[0] : params?.id;
+  const slug = Array.isArray(params?.slug) ? params?.slug[0] : params?.slug;
 
-  const catalogList = id ? await getCatalogList() : [];
-  const item = catalogList.find((item) => String(item.id) === id);
+  const catalogList = slug ? await getCatalogList() : [];
+  const item = catalogList.find((item) => item.slug === slug);
 
   return {
     props: { item, catalogList },
@@ -42,7 +42,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const catalogList = await getCatalogList();
 
   return {
-    paths: catalogList.map(({ id }) => `/catalog/${id}`) || [],
+    paths: catalogList.map(({ slug }) => `/catalog/${slug}`) || [],
     fallback: true,
   };
 };

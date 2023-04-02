@@ -8,7 +8,7 @@ import styles from "./index.module.scss";
 
 interface OrderModalProps {
   onClose: () => void;
-  productName: string;
+  productName?: string;
 }
 
 export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
@@ -73,7 +73,8 @@ export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
           <h2 style={{ textAlign: "center" }}>Оставь заявку</h2>
 
           <p>
-            Наш менеджер свяжется с вами в ближайшее время для уточнения всех
+            Наш менеджер свяжется с вами <br />
+            в ближайшее время для уточнения всех <br />
             вопросов и оформления вашего заказа
           </p>
 

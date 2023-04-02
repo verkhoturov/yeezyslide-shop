@@ -1,8 +1,23 @@
-import { LinkButton } from "../base";
+import React from "react";
+import { Button } from "../base";
 import Image from "next/image";
 import { Section } from "../layout";
 import { CatalogItem } from "../../lib/types";
+
+import { OrderModal } from "../order";
+
+import { SimilarOffers } from "./similar-offers";
+
 import styles from "./index.module.scss";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+// import required modules
+import { Navigation, Pagination } from "swiper";
 
 const defaultSizes = [
   "36",
@@ -24,20 +39,34 @@ interface SneakersInfoProps {
   catalogList: CatalogItem[];
 }
 
-export const SneakersInfo = ({ item }: SneakersInfoProps) => {
+export const SneakersInfo = ({ item, catalogList }: SneakersInfoProps) => {
+  const [isOrderModalOpen, setIsOrderModalOpen] = React.useState(false);
+
+  const similarItemsList = React.useMemo(() => {
+    if(item) {
+
+      return catalogList.filter(
+        (catalogItem) =>
+          catalogItem.model === item.model && catalogItem.id !== item.id
+      );
+    }
+    return [];
+  }, [catalogList, item]);
+
   if (!item) return null;
 
   const {
     title,
     pageImg,
     article,
-    colors,
+    color,
     releaseDate,
     composition,
     inStock,
     sizes,
     price,
     discount,
+    gallery,
   } = item;
 
   const priceFmt = price.toLocaleString("ru-RU");
@@ -53,15 +82,21 @@ export const SneakersInfo = ({ item }: SneakersInfoProps) => {
 
         <div className={styles.row}>
           <div className={styles.sliderCol}>
-            <div className={styles.imgWrapper}>
-              <Image
-                src={pageImg}
-                width={833}
-                height={500}
-                alt={title}
-                unoptimized={false}
-              />
-            </div>
+            <Swiper
+              navigation
+              pagination={{ clickable: true }}
+              loop
+              modules={[Navigation, Pagination]}
+              className="swiper-gallery-global"
+            >
+              {gallery.map((img, index) => (
+                <SwiperSlide key={index}>
+                  <div className={styles.imgWrapper}>
+                    <Image src={img} width={833} height={500} alt={title} />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
           <div className={styles.infoCol}>
             <div className={styles.titleWrapper}>
@@ -85,7 +120,7 @@ export const SneakersInfo = ({ item }: SneakersInfoProps) => {
 
               <div className={styles.descRow}>
                 <dt>Цвет:</dt>
-                <dd>{colors.join("/")}</dd>
+                <dd>{color}</dd>
               </div>
 
               <div className={styles.descRow}>
@@ -117,13 +152,30 @@ export const SneakersInfo = ({ item }: SneakersInfoProps) => {
               ))}
             </div>
 
-            <div className={`${styles.row} hide-mobile`}>
+            <div className={`${styles.priceRow} hide-mobile`}>
               <p className={styles.price}>
                 {discount && (
                   <span className={styles.fullPrice}>{priceFmt} ₽</span>
                 )}
                 <span>{currentPrice} ₽</span>
               </p>
+
+              <Button
+                onClick={() => setIsOrderModalOpen(true)}
+                size="small"
+                disabled={!inStock}
+              >
+                Купить
+              </Button>
+            </div>
+
+            <div className={`${styles.mobileBtn}`}>
+              <Button
+                onClick={() => setIsOrderModalOpen(true)}
+                disabled={!inStock}
+              >
+                Купить Yeezy
+              </Button>
             </div>
           </div>
         </div>
@@ -155,7 +207,16 @@ export const SneakersInfo = ({ item }: SneakersInfoProps) => {
             </p>
           </div>
         </div>
+
+        <SimilarOffers catalogList={similarItemsList} />
       </div>
+
+      {isOrderModalOpen && (
+        <OrderModal
+          productName={item.title}
+          onClose={() => setIsOrderModalOpen(false)}
+        />
+      )}
     </Section>
   );
 };

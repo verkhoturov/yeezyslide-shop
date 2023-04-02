@@ -17,7 +17,7 @@ export default function ProductPage({
 
   React.useEffect(() => {
     if (!item) router.back();
-  }, [item]);
+  }, [item, router]);
 
   return (
     <Page>

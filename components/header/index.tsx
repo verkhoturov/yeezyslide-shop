@@ -18,7 +18,7 @@ export const Header = () => {
         </div>
 
         <div className={`${styles.tableCol} hide-mobile`}>
-          <span className={styles.text}>Размерная таблица</span>
+          {/* <span className={styles.text}>Размерная таблица</span> */}
         </div>
 
         <div className={`${styles.buyCol} hide-mobile`}>

@@ -190,8 +190,12 @@
 
     padding-top: 25px;
 
+    margin-bottom: 100px;
+
     @media (max-width: 1023px) {
         flex-direction: column;
+
+        margin-bottom: 50px;
     }
 }
 
@@ -295,5 +299,62 @@
         right: unset;
         left: 0;
         top: 0;
+    }
+}
+
+.priceRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobileBtn {
+    display: none;
+
+    > button {
+        max-width: 100%;
+    }
+
+    @media (max-width: 1023px) {
+        display: block;
+    }
+}
+
+.similarOffers {
+    > h2 {
+        margin-bottom: 12px;
+    }
+}
+
+.similarOffersSliderWrapper {
+    border-top: 1px solid black;
+    padding-top: 24px;
+}
+
+.list {
+    list-style: none;
+    margin: 0 -13px 13px;
+    width: calc(100% + 26px);
+    
+    display: flex;
+    flex-wrap: wrap;
+
+    @media (max-width: 1439px) {
+        margin: 0 -9px 13px;
+        width: calc(100% + 18px);
+    }
+
+    @media (max-width: 1023px) {
+        margin: 0 -6px 13px;
+        width: calc(100% + 12px);
+
+        > li {
+            max-width: 50%;
+        }
+    }
+
+    @media (max-width: 374px) {
+        margin: 0 -4px 13px;
+        width: calc(100% + 8px);
     }
 }

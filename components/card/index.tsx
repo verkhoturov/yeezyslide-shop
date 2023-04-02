@@ -6,7 +6,7 @@ import styles from "./index.module.scss";
 interface Item {
   slug: string;
   title: string;
-  prewImg: string;
+  previewImg: string;
   price: number;
   discount: number | null;
   inStock: boolean;
@@ -17,7 +17,7 @@ interface CardProps {
 }
 
 export const Card = ({ item }: CardProps) => {
-  const { slug, title, discount, price, prewImg, inStock } = item;
+  const { slug, title, discount, price, previewImg, inStock } = item;
   const priceFmt = price.toLocaleString("ru-RU");
 
   const currentPrice = (
@@ -27,7 +27,7 @@ export const Card = ({ item }: CardProps) => {
   return (
     <Link
       href={`/catalog/${slug}`}
-      className={`${styles.container} ${!inStock ? styles.disabled : ""}`}
+      className={`${styles.container}`}
     >
       <div className={styles.titleWrapper}>
         <h3 className={styles.title}>{title}</h3>
@@ -39,7 +39,7 @@ export const Card = ({ item }: CardProps) => {
       {discount && <div className={styles.discount}>-{discount}%</div>}
 
       <div className={styles.imgWrapper}>
-        <Image src={prewImg} height={198} width={330} alt={title} />
+        <Image src={previewImg} height={198} width={330} alt={title} />
       </div>
 
       <div className={styles.bottom}>

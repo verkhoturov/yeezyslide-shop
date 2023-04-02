@@ -7,6 +7,8 @@ interface ButtonProps {
   secondary?: boolean;
   disabled?: boolean;
   size?: "small" | "medium" | "large";
+  type?: "button" | "submit" | "reset";
+  onClick?: () => void;
 }
 
 interface LinkButtonProps extends ButtonProps {
@@ -18,9 +20,13 @@ export const Button = ({
   secondary,
   disabled,
   size,
+  type,
+  onClick,
 }: ButtonProps) => {
   return (
     <button
+      onClick={onClick}
+      type={type}
       className={`${styles.container} ${disabled ? styles.disabled : ""} ${
         secondary ? styles.secondary : ""
       } ${size === "small" ? styles.small : ""}`}

@@ -20,7 +20,7 @@ export default function ProductPage({
   }, [item, router]);
 
   return (
-    <Page>
+    <Page title={item?.title}>
       <SneakersInfo item={item} catalogList={catalogList} />
     </Page>
   );

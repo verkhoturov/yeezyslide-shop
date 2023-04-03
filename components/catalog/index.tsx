@@ -3,6 +3,8 @@ import { Section } from "../layout";
 import { Card } from "../card";
 import { Button } from "../base";
 import { FiltersForm } from "./filters";
+import { useScreenSize } from "../../utils/useScreenSize";
+
 import styles from "./index.module.scss";
 
 import { CatalogItem } from "../../lib/types";
@@ -16,6 +18,8 @@ const defaultSelectedFilters = {
 };
 
 export const Catalog = ({ items }: { items: CatalogItem[] }) => {
+  const { isTablet } = useScreenSize();
+  const [showFilters, setShowFilters] = React.useState(false);
   const [selectedFilters, setSelectedFilters] = React.useState(
     defaultSelectedFilters
   );
@@ -59,6 +63,7 @@ export const Catalog = ({ items }: { items: CatalogItem[] }) => {
     }
 
     if (sizes[0] !== "all") {
+      list = list.filter((item) => sizes.some((s) => item.sizes.includes(s)));
     }
 
     if (!stock.includes("not-in-stock") || !stock.includes("in-stock")) {
@@ -78,10 +83,28 @@ export const Catalog = ({ items }: { items: CatalogItem[] }) => {
 
       <div className={styles.container}>
         <div className={styles.filterWrapper}>
-          <FiltersForm
-            selectedFilters={selectedFilters}
-            selectFilter={selectFilter}
-          />
+          <button
+            onClick={() => setShowFilters(!showFilters)}
+            className={styles.mobileFilterSwitcher}
+          >
+            <span>Фильтры</span>
+            <svg
+              width="20"
+              height="18"
+              viewBox="0 0 20 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M20 0H0L8 9.46V16L12 18V9.46L20 0Z" fill="black" />
+            </svg>
+          </button>
+
+          {(showFilters || !isTablet) && (
+            <FiltersForm
+              selectedFilters={selectedFilters}
+              selectFilter={selectFilter}
+            />
+          )}
         </div>
 
         <div className={styles.listWrapper}>

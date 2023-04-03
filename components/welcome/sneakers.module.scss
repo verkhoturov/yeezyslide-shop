@@ -4,15 +4,16 @@
     flex-wrap: wrap;
     flex-direction: column;
 
-    min-height: 574px;
+    padding-bottom: 40px;
 
     @media (max-width: 1439px) {
-        min-height: auto;
+        padding-bottom: 20px;
     }
 
     @media (max-width: 1023px) {
         flex-direction: row;
         flex-wrap: nowrap;
+        padding-bottom: 0;
     }
 }
 
@@ -21,6 +22,8 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+
+    margin-bottom: 20px;
 
     @media (max-width: 1023px) {
         flex-direction: column;
@@ -34,55 +37,37 @@
 
     overflow: hidden;
 
-    margin-bottom: 20px;
-
     position: relative;
 
     > img {
         width: 100%;
         height: auto;
 
+        transition: 0.5s;
+    }
+
+    .gif {
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
 
-        transition: 0.5s;
+        opacity: 0;
+    }
+
+    .image {
         opacity: 1;
     }
 
-    :first-child {
-        position: relative;
-        transition-delay: 0s;
-    }
+    &:hover {
+        .gif {
+            opacity: 1;
+        }
 
-    :nth-child(2) {
-        transition-delay: 0.3s;
-    }
-
-    :nth-child(3) {
-        transition-delay: 0.6s;
-    }
-
-    :nth-child(4) {
-        transition-delay: 0.9s;
-    }
-
-    :nth-child(5) {
-        transition-delay: 1.2s;
-    }
-
-    :nth-child(6) {
-        transition-delay: 1.5s;
-    }
-
-    :nth-child(7) {
-        transition-delay: 1.2s;
-    }
-
-    :last-child {
-        opacity: 1 !important;
+        .image {
+            opacity: 0;
+        }
     }
 
     @media (max-width: 1023px) {

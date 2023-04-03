@@ -35,19 +35,21 @@ const Filter = ({
     <fieldset className={styles.fieldset}>
       <legend className={styles.legend}>{legend}</legend>
 
-      {checkboxList.map((checkbox, i) => (
-        <label key={i} className={styles.label}>
-          <input
-            className={styles.input}
-            type="checkbox"
-            name={checkbox.name}
-            checked={selectedNames.includes(checkbox.name)}
-            onChange={handleChange}
-          />
-          <div className={styles.checkbox} />
-          <span>{checkbox.label}</span>
-        </label>
-      ))}
+      <div className={styles.labels}>
+        {checkboxList.map((checkbox, i) => (
+          <label key={i} className={styles.label}>
+            <input
+              className={styles.input}
+              type="checkbox"
+              name={checkbox.name}
+              checked={selectedNames.includes(checkbox.name)}
+              onChange={handleChange}
+            />
+            <div className={styles.checkbox} />
+            <span>{checkbox.label}</span>
+          </label>
+        ))}
+      </div>
     </fieldset>
   );
 };
@@ -71,6 +73,8 @@ const sizes: CheckboxItem[] = [
   { name: "43", label: "43 EU" },
   { name: "44", label: "44 EU" },
   { name: "45", label: "45 EU" },
+  { name: "46", label: "46 EU" },
+  { name: "47", label: "47 EU" },
 ];
 
 const stock: CheckboxItem[] = [

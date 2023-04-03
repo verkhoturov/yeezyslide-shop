@@ -1,6 +1,10 @@
 .container {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 1023px) {
+        flex-direction: column;
+    }
 }
 
 .filterWrapper {
@@ -15,7 +19,44 @@
     }
 
     @media (max-width: 1023px) {
-        display: none;
+        background: rgb(231 236 202 / 30%);
+        border-bottom: 1px solid rgb(0 0 0 / 30%);
+        margin: -20px -16px 20px;
+        width: calc(100% + 32px);
+        flex: 0 0 calc(100% + 32px);
+        max-width: calc(100% + 32px);
+
+        > form {
+            padding: 26px 16px 0;
+        }
+    }
+}
+
+.mobileFilterSwitcher {
+    display: none;
+
+    height: 60px;
+    width: 100%;
+
+    margin-bottom: -1px;
+    padding: 0 16px 0;
+
+    align-items: center;
+    justify-content: space-between;
+
+    background: #E7ECCA;
+    border: unset;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+
+    > span {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 14px;
+    }
+
+    @media (max-width: 1023px) {
+        display: flex;
     }
 }
 

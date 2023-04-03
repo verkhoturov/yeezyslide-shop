@@ -40,6 +40,7 @@ const Sneakers = ({
         width={img.width}
         height={img.height}
         alt=""
+        priority
       />
     </div>
   );
@@ -59,21 +60,43 @@ export const SneakersPepresent = () => {
   const { isTablet } = useScreenSize();
   return (
     <div className={styles.sneakersWrapper}>
-      <div className={styles.sneakersList}>
-        {adiletteList.map((pair, i) => (
-          <Sneakers key={i} img={pair[0]} gif={pair[1]} />
-        ))}
-      </div>
-      <div className={styles.sneakersList}>
-        {runnerList.map((pair, i) => (
-          <Sneakers key={i} img={pair[0]} gif={pair[1]} />
-        ))}
-      </div>
-      <div className={styles.sneakersList}>
-        {slideList.map((pair, i) => (
-          <Sneakers key={i} img={pair[0]} gif={pair[1]} />
-        ))}
-      </div>
+      {isTablet ? (
+        <>
+          <div className={styles.sneakersList}>
+            {adiletteImages.map((image, i) => (
+              <SneakersMobile key={i} image={image} />
+            ))}
+          </div>
+          <div className={styles.sneakersList}>
+            {runnerImages.map((image, i) => (
+              <SneakersMobile key={i} image={image} />
+            ))}
+          </div>
+          <div className={styles.sneakersList}>
+            {slideImages.map((image, i) => (
+              <SneakersMobile key={i} image={image} />
+            ))}
+          </div>
+        </>
+      ) : (
+        <>
+          <div className={styles.sneakersList}>
+            {adiletteList.map((pair, i) => (
+              <Sneakers key={i} img={pair[0]} gif={pair[1]} />
+            ))}
+          </div>
+          <div className={styles.sneakersList}>
+            {runnerList.map((pair, i) => (
+              <Sneakers key={i} img={pair[0]} gif={pair[1]} />
+            ))}
+          </div>
+          <div className={styles.sneakersList}>
+            {slideList.map((pair, i) => (
+              <Sneakers key={i} img={pair[0]} gif={pair[1]} />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };

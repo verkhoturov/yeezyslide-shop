@@ -1,7 +1,6 @@
 import React from "react";
 import { Modal } from "../modal";
 import { Button } from "../base/button";
-import { useRouter } from "next/router";
 import InputMask from "react-input-mask";
 
 import styles from "./index.module.scss";
@@ -12,8 +11,6 @@ interface OrderModalProps {
 }
 
 export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
-  const router = useRouter();
-
   const formRef = React.useRef(null);
 
   const [name, setName] = React.useState("");
@@ -21,6 +18,7 @@ export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
   const [phone, setPhone] = React.useState("");
   const [error, setError] = React.useState("");
   const [isSucces, setIsSucces] = React.useState<boolean>(false);
+  const [isPending, setPending] = React.useState<boolean>(false);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,38 +33,43 @@ export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
       return;
     }
 
-    const body = JSON.stringify({ name, email, phone });
+    const url = `http://admin.yeezyslide.ru/wp-json/contact-form-7/v1/contact-forms/268/feedback`;
+    const formData = new FormData(formRef.current!);
 
-    console.log(body);
-
-    setIsSucces(true);
-    setName("");
-    setEmail("");
-    setPhone("");
-
-    /*
-    const res = await fetch("/api/contact", { method: "POST", body });
-    const data = await res.json();
-   
-
-    if (data.error || data.status == "error") {
-      setError("Ошибка отправки формы");
+    if (productName) {
+      formData.append("customer-product", productName);
     }
 
-    if (data.status === "succes") {
+    setPending(true);
+
+    const res = await fetch(url, { method: "POST", body: formData });
+    const data = await res.json();
+
+    if (data?.status === "mail_sent") {
       setIsSucces(true);
       setName("");
       setEmail("");
       setPhone("");
+    } else {
+      setError("Ошибка отправки формы");
     }
-    */
+
+    setPending(false);
   };
 
   return (
     <Modal onClose={onClose}>
       {isSucces ? (
         <div className={styles.succesWrapper}>
-          <h2>Заказ успешно отправлен</h2>
+          <h2 style={{ textAlign: "center" }}>
+            {productName
+              ? "Заказ успешно отправлен"
+              : "Заявка успешно отправлена"}
+          </h2>
+        </div>
+      ) : isPending ? (
+        <div className={styles.succesWrapper}>
+          <h2 style={{ textAlign: "center" }}>Отправка...</h2>
         </div>
       ) : (
         <form ref={formRef} onSubmit={onSubmit} className={styles.form}>
@@ -81,6 +84,7 @@ export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
           <label className={styles.label}>
             <span>Имя</span>
             <input
+              name="customer-name"
               className={styles.input}
               type="text"
               value={name}
@@ -95,6 +99,7 @@ export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
             <span>Номер телефона*</span>
 
             <InputMask
+              name="customer-phone"
               mask="+7 (999) 999-99-99"
               className={styles.input}
               type="tel"
@@ -110,6 +115,7 @@ export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
           <label className={styles.label}>
             <span>E-mail*</span>
             <input
+              name="customer-email"
               className={styles.input}
               type="email"
               value={email}

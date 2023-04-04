@@ -33,16 +33,28 @@ export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
       return;
     }
 
-    const url = `http://admin.yeezyslide.ru/wp-json/contact-form-7/v1/contact-forms/268/feedback`;
-    const formData = new FormData(formRef.current!);
+    const url = `/api/proxy`;
+
+    const message: {
+      "customer-name": string;
+      "customer-email": string;
+      "customer-phone": string;
+      "customer-product"?: string;
+    } = {
+      "customer-name": name,
+      "customer-email": email,
+      "customer-phone": phone,
+    };
 
     if (productName) {
-      formData.append("customer-product", productName);
+      message["customer-product"] = productName;
     }
+
+    const body = JSON.stringify(message);
 
     setPending(true);
 
-    const res = await fetch(url, { method: "POST", body: formData });
+    const res = await fetch(url, { method: "POST", body });
     const data = await res.json();
 
     if (data?.status === "mail_sent") {
@@ -105,7 +117,6 @@ export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
               type="tel"
               value={phone}
               onChange={(e) => {
-                console.log(e.target.value);
                 setPhone(e.target.value);
                 setError("");
               }}

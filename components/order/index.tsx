@@ -73,7 +73,7 @@ export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
         </div>
       ) : (
         <form ref={formRef} onSubmit={onSubmit} className={styles.form}>
-          <h2 style={{ textAlign: "center" }}>Оставь заявку</h2>
+          <h2>Оставь заявку</h2>
 
           <p>
             Наш менеджер свяжется с вами <br />

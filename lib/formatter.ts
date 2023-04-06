@@ -17,6 +17,7 @@ export const formatterWPDataToCatalogItem = (
         model,
         sizes,
         colors,
+        preOrder,
       },
       title: { rendered: title },
     } = item;
@@ -35,6 +36,7 @@ export const formatterWPDataToCatalogItem = (
       price: Number(price),
       discount: discount ? Number(discount) : null,
       inStock,
+      preOrder,
       model,
       sizes,
     };

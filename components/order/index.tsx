@@ -8,9 +8,14 @@ import styles from "./index.module.scss";
 interface OrderModalProps {
   onClose: () => void;
   productName?: string;
+  isPreOrder?: boolean;
 }
 
-export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
+export const OrderModal = ({
+  onClose,
+  productName,
+  isPreOrder,
+}: OrderModalProps) => {
   const formRef = React.useRef(null);
 
   const [name, setName] = React.useState("");
@@ -19,6 +24,13 @@ export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
   const [error, setError] = React.useState("");
   const [isSucces, setIsSucces] = React.useState<boolean>(false);
   const [isPending, setPending] = React.useState<boolean>(false);
+
+  const currentLink = React.useMemo(() => {
+    if (typeof window !== "undefined") {
+      return window.location.href;
+    }
+    return "";
+  }, []);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,15 +51,23 @@ export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
       "customer-name": string;
       "customer-email": string;
       "customer-phone": string;
+      "customer-order-type": string;
       "customer-product"?: string;
+      "customer-product-link"?: string;
     } = {
       "customer-name": name,
       "customer-email": email,
       "customer-phone": phone,
+      "customer-order-type": "Заявка",
     };
 
     if (productName) {
       message["customer-product"] = productName;
+      message["customer-product-link"] = currentLink;
+    }
+
+    if (isPreOrder) {
+      message["customer-order-type"] = "Предзаказ";
     }
 
     const body = JSON.stringify(message);
@@ -75,7 +95,9 @@ export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
         <div className={styles.succesWrapper}>
           <h2 style={{ textAlign: "center" }}>
             {productName
-              ? "Заказ успешно отправлен"
+              ? isPreOrder
+                ? "Предзаказ успешно отправлен"
+                : "Заказ успешно отправлен"
               : "Заявка успешно отправлена"}
           </h2>
         </div>

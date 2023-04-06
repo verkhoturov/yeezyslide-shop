@@ -18,6 +18,7 @@ export interface CatalogItem {
   price: number;
   discount: number | null;
   inStock: boolean;
+  preOrder: boolean;
   model: Model;
   sizes: string[];
 }
@@ -46,6 +47,7 @@ export interface ServerCatalogItem {
     price: string;
     discount: string;
     inStock: boolean;
+    preOrder: boolean;
     model: Model;
     sizes: string[];
   };

@@ -43,8 +43,7 @@ export const SneakersInfo = ({ item, catalogList }: SneakersInfoProps) => {
   const [isOrderModalOpen, setIsOrderModalOpen] = React.useState(false);
 
   const similarItemsList = React.useMemo(() => {
-    if(item) {
-
+    if (item) {
       return catalogList.filter(
         (catalogItem) =>
           catalogItem.model === item.model && catalogItem.id !== item.id
@@ -57,7 +56,6 @@ export const SneakersInfo = ({ item, catalogList }: SneakersInfoProps) => {
 
   const {
     title,
-    pageImg,
     article,
     color,
     releaseDate,
@@ -67,6 +65,7 @@ export const SneakersInfo = ({ item, catalogList }: SneakersInfoProps) => {
     price,
     discount,
     gallery,
+    preOrder,
   } = item;
 
   const priceFmt = price.toLocaleString("ru-RU");
@@ -163,18 +162,18 @@ export const SneakersInfo = ({ item, catalogList }: SneakersInfoProps) => {
               <Button
                 onClick={() => setIsOrderModalOpen(true)}
                 size="small"
-                disabled={!inStock}
+                disabled={preOrder ? false : !inStock}
               >
-                Купить
+                {preOrder ? "Предзаказ" : "Купить"}
               </Button>
             </div>
 
             <div className={`${styles.mobileBtn}`}>
               <Button
                 onClick={() => setIsOrderModalOpen(true)}
-                disabled={!inStock}
+                disabled={preOrder ? false : !inStock}
               >
-                Купить Yeezy
+                {preOrder ? "Предзаказ" : "Купить Yeezy"}
               </Button>
             </div>
           </div>
@@ -213,7 +212,8 @@ export const SneakersInfo = ({ item, catalogList }: SneakersInfoProps) => {
 
       {isOrderModalOpen && (
         <OrderModal
-          productName={item.title}
+          productName={title}
+          isPreOrder={preOrder}
           onClose={() => setIsOrderModalOpen(false)}
         />
       )}

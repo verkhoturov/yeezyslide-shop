@@ -189,7 +189,10 @@ export const SneakersInfo = ({ item, catalogList }: SneakersInfoProps) => {
               </p>
             </div>
 
-            <div className={`${styles.infoBlock} ${styles.payment}`}>
+            <div
+              className={`${styles.infoBlock} ${styles.payment}`}
+              style={{ opacity: 0 }}
+            >
               <h3>Оплата</h3>
               <p>
                 Бесплатная доставка по г.Москва +25км от МКАД; Доставка по РФ в

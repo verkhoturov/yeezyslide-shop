@@ -18,25 +18,19 @@ export const Welcome = () => {
           <div className={`${styles.infoBlock} ${styles.delivery}`}>
             <h3>Доставка</h3>
             <p>
-              Бесплатная доставка по г.Москва +25км от МКАД; Доставка по РФ в
-              удобный пункт СДЕК
+                Работает курьерская доставка по Москве и МО. По всей территории
+                РФ работает доставка почтой
             </p>
           </div>
 
           <div
-            className={`${styles.infoBlock} ${styles.payment}`}
-            style={{ opacity: 0 }}
+            className={`${styles.infoBlock} ${styles.payment}`} 
           >
             <h3>Оплата</h3>
             <p>
               Бесплатная доставка по г.Москва +25км от МКАД; Доставка по РФ в
               удобный пункт СДЕК
             </p>
-          </div>
-
-          <div className={`${styles.infoBlock} ${styles.note}  hide-mobile`}>
-            <h3>Про нас</h3>
-            <p>Мы работаем исключительно с оригинальной продукцией</p>
           </div>
         </div>
 

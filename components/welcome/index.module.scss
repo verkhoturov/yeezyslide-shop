@@ -22,12 +22,24 @@
     }
 }
 
-.delivery,
-.payment {
+.delivery {
     margin-right: 5%;
 
     flex: 0 0 28%;
     max-width: 28%;
+
+    @media (max-width: 1023px) {
+        margin-right: 0;
+        margin-bottom: 24px;
+    
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.payment {
+    flex: 0 0 62%;
+    max-width: 62%;
 
     @media (max-width: 1023px) {
         margin-right: 0;

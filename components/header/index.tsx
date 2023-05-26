@@ -16,9 +16,9 @@ export const Header = () => {
 
         <div className={styles.socCol}>
           <div className={styles.soc}>
-            <Link href={"/"}>vk</Link>
-            <Link href={"/"}>tg</Link>
-            <Link href={"/"}>inst</Link>
+            <Link href={"https://vk.com/club216236325"} target="_blank">vk</Link>
+            <Link href={"https://t.me/yeezy_slide"} target="_blank">tg</Link>
+            <Link href={"https://instagram.com/yeezyslide_russia?igshid=MmIzYWVlNDQ5Yg=="} target="_blank">inst</Link>
           </div>
         </div>
 

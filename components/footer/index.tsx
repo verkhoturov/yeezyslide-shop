@@ -1,14 +1,15 @@
 import Link from "next/link";
 import styles from "./index.module.scss";
 import { VkIcon, TgIcon, InstIcon } from "./soc-icons";
- 
 
 export const Footer = () => {
   return (
     <footer className={styles.container}>
       <div className={styles.row}>
         <div className={styles.info}>
-          <Link  href={"/"}className={styles.logo}>yeezyslide_russia</Link>
+          <Link href={"/"} className={styles.logo}>
+            yeezyslide_russia
+          </Link>
           <p className={styles.desc}>
             yeezyslide_russia мы, специализирующуюся на продаже тапочек Yeeze в
             Москве! Наша компания является самым успешным дистербьютером Yeeze в
@@ -19,13 +20,18 @@ export const Footer = () => {
 
         <div className={styles.socWrapper}>
           <div className={styles.soc}>
-            <Link href={"/"}>
+            <Link href={"https://vk.com/club216236325"} target="_blank">
               <VkIcon />
             </Link>
-            <Link href={"/"}>
+            <Link href={"https://t.me/yeezy_slide"} target="_blank">
               <TgIcon />
             </Link>
-            <Link href={"/"}>
+            <Link
+              href={
+                "https://instagram.com/yeezyslide_russia?igshid=MmIzYWVlNDQ5Yg==/"
+              }
+              target="_blank"
+            >
               <InstIcon />
             </Link>
           </div>
